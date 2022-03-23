@@ -1,0 +1,43 @@
+﻿@model List<ClienteCore.Models.Entity.Cliente>
+@{
+    ViewData["Title"] = "Obtener";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Lista de Clientes
+    </div>
+    <div class="card-body">
+        <a asp-action="guardarCliente" asp-controller="Cliente" class="btn btn-success">Nuevo Cliente</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead class="bg-fusion-800">
+                <tr>
+                    <th>Número Cliente</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdCliente</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Apellidos</td>
+                        <td>@item.Edad</td>
+                        <td>
+                            <a asp-action="ObtenerCuenta" asp-controller="Cuentas" class="btn btn-primary btn-sm" asp-route-idCliente="@item.IdCliente">Cuentas</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+

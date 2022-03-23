@@ -1,0 +1,43 @@
+﻿@model List<ClienteCore.Models.Entity.Cuentas>
+
+@{
+    ViewData["Title"] = "ObtenerCuenta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Cuentas de Ahorro
+    </div>
+    <div class="card-body">
+        <a asp-action="guardarCuenta" asp-controller="Cuentas" class="btn btn-success">Nueva Cuenta</a>
+        <hr />
+        <table class="table table-bordered">
+            <thead class="bg-fusion-800">
+                <tr>
+                    <th>Número de Cliente</th>
+                    <th>Número de Cuenta</th>
+                    <th>Saldo</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdCliente</td>
+                        <td>@item.NumeroCuenta</td>
+                        <td>@item.Saldo</td>
+                        <td>
+                            <a asp-action="ActualizarSaldo" asp-controller="Cuentas" class="btn btn-primary btn-sm" asp-route-idCuenta="@item.NumeroCuenta" id="btnDeposito">Deposito</a>
+                        </td>
+                        <td>
+                            <a asp-action="RetirarSaldo" asp-controller="Cuentas" class="btn btn-primary btn-sm" asp-route-idCuenta="@item.NumeroCuenta" id="btnRetiro">Retiro</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

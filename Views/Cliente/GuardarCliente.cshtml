@@ -1,0 +1,39 @@
+﻿@model ClienteCore.Models.Entity.Cliente
+@{
+    ViewData["Title"] = "GuardarCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Cliente Nuevo
+    </div>
+    <div class="card-body">
+        <form asp-action="GuardarCliente" asp-controller="Cliente" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Número de Cliente</label>
+                <input asp-for="IdCliente" type="text" class="form-control" id="txtCliente">
+                <span asp-validation-for="IdCliente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control" id="txtNombre">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Apellido</label>
+                <input asp-for="Apellidos" type="text" class="form-control" id="txtApellido">
+                <span asp-validation-for="Apellidos" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Edad</label>
+                <input asp-for="Edad" type="text" class="form-control" id="txtEdad">
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Obtener" asp-controller="Cliente" class="btn btn-success">Volver</a>
+        </form>        
+    </div>
+</div>
+
+

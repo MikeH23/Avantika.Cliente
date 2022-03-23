@@ -1,0 +1,34 @@
+﻿@model ClienteCore.Models.Entity.Cuentas
+@{
+    ViewData["Title"] = "GuardarCuenta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Cuenta Nueva
+    </div>
+    <div class="card-body">
+        <form asp-action="GuardarCuenta" asp-controller="Cuentas" method="post">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Número de Cliente</label>
+                <input asp-for="IdCliente" type="text" class="form-control" id="txtCliente">
+                <span asp-validation-for="IdCliente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Número de Cuenta</label>
+                <input asp-for="NumeroCuenta" type="text" class="form-control" id="txtCuenta">
+                <span asp-validation-for="NumeroCuenta" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Saldo</label>
+                <input asp-for="Saldo" type="text" class="form-control" id="txtSaldo">
+                <span asp-validation-for="Saldo" class="text-danger"></span>
+            </div>            
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a asp-action="Obtener" asp-controller="Cliente" class="btn btn-success">Volver a Clientes</a>
+        </form>
+    </div>
+</div>
+
+

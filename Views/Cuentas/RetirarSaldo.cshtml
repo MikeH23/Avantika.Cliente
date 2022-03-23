@@ -1,0 +1,39 @@
+﻿@model ClienteCore.Models.DTO.CuentasDTO
+
+@{
+    ViewData["Title"] = "RetirarSaldo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card" id="depositos">
+    <div class="card-header">
+        Retiro de Saldo de la Cuenta
+    </div>
+    <div class="card-body">
+        <form asp-action="RetirarSaldo" asp-controller="Cuentas" asp-route-bRetiro="True" method="post">
+            @*<input asp-for="Id" type="hidden" class="form-control">*@
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Número de Cliente</label>
+                <input asp-for="IdCliente" type="text" class="form-control" id="txtCliente">
+                <span asp-validation-for="IdCliente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Número de Cuenta</label>
+                <input asp-for="NumeroCuenta" type="text" class="form-control" id="txtCuenta">
+                <span asp-validation-for="NumeroCuenta" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Saldo Actual</label>
+                <input asp-for="Saldo" type="text" class="form-control" id="txtSaldo">
+                <span asp-validation-for="Saldo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Monto a Retirar</label>
+                <input asp-for="Monto" type="text" class="form-control" id="txtMonto">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Retirar</button>
+            <a asp-action="Obtener" asp-controller="Cliente" class="btn btn-success">Volver a Clientes</a>
+        </form>
+    </div>
+</div>
